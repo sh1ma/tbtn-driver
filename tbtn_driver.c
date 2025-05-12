@@ -4,12 +4,12 @@
 #include <linux/input.h>
 #include <linux/input/sparse-keymap.h>
 
-// ドライバーが対応するACPIデバイスIDのリスト
-// TODO: _HIDの値 (0x2A003434, 0x2B003434) を適切なEISA ID文字列に変換して設定する
 static const struct acpi_device_id tbtn_device_ids[] = {
-    {"PNP0C40", 0}, // 0x2B003434 のデコード結果
+    {"MAT002A", 0}, // 0x2A003434
+    {"MAT002B", 0}, // 0x2B003434
     {"", 0},
 };
+
 MODULE_DEVICE_TABLE(acpi, tbtn_device_ids);
 
 // デバイス固有のデータを保持する構造体
