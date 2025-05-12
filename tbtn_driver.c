@@ -12,12 +12,10 @@ static const struct acpi_device_id tbtn_device_ids[] = {
 
 MODULE_DEVICE_TABLE(acpi, tbtn_device_ids);
 
-// デバイス固有のデータを保持する構造体
 struct tbtn_dev
 {
     acpi_handle handle;
     struct input_dev *input_dev;
-    // 必要に応じて他のメンバーを追加
 };
 
 static const struct key_entry tbtn_keymap[] = {
@@ -186,7 +184,7 @@ static void tbtn_remove(struct acpi_device *device)
 // acpi_driver構造体
 static struct acpi_driver tbtn_acpi_driver = {
     .name = "tbtn_driver",
-    .class = "tbtn", // 任意
+    .class = "tbtn",
     .ids = tbtn_device_ids,
     .ops = {
         .add = tbtn_add,
